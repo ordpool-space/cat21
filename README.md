@@ -50,3 +50,17 @@ The protocol may be expanded to include additional features based on community f
 Please make a PR to this repository to participate in the open developmenti
 
 The CAT-21 protocol introduces a novel way of digital asset representation and transaction on the Bitcoin blockchain, inviting marketplaces, wallets, and indexers to adopt and integrate this disruptive protocol in the broader ecosystem!
+
+### Roadmap
+
+1. Development of a sound Protocol Specification (this document)
+2. Reference implementation on ordpool-parser (the engine that parses digital artificats on Ordpool.Space)
+3. Development of a simple script (TypeScript preferred) that creates a PSBT to mint a CAT-21 asset
+4. Open invitation of the Ordinals ecosystem to adapt the protocol in their products!
+
+
+## Idea and concept
+
+The idea for this protocol came from this [twitter conversation](https://twitter.com/HausHoppe/status/1741789980551213207).
+[@1440000bytes](https://twitter.com/1440000bytes) had the initial idea to use the `nLockTime` field for data storage.
+[@HausHoppe](https://twitter.com/HausHoppe) adapted the idea and created this repository to engage collobration and discussions on the protocol.
