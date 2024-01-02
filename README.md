@@ -10,7 +10,7 @@ CAT-21 transactions are identified using the `nLockTime` field in a Bitcoin tran
 
 ### Identification of a CAT-21 Mint Transaction
 
-1. **nLockTime Value**: A transaction is considered a CAT-21 mint if its `nLockTime` value is set to `21`.
+1. **nLockTime Value**: A transaction is considered a CAT-21 mint if its [`nLockTime`](https://en.bitcoin.it/wiki/NLockTime) value is set to `21`.
 2. **Transaction Type**: A CAT-21 mint transaction must be a Taproot transaction, using pay-to-taproot (P2TR) addresses.
 3. **Single Input and Output**: For mint transactions, only one input and one output are allowed to ensure simplicity and clarity.
 4. **Ownership**: The ownership of a CAT-21 asset is determined by the entity controlling the first Satoshi in the transaction output, in line with the [Ordinal Theory](https://docs.ordinals.com/overview.html).
@@ -33,15 +33,36 @@ CAT-21 transactions are identified using the `nLockTime` field in a Bitcoin tran
 2. If a CAT-21 asset is sent to a "burner" address, the cat still exists but has no owner anymore. (The cat is free!)
 
 
-## Image Representation (TODO)
+## Library and Tools
 
-### Generative Cat Art
+### Image Representation
+
+Each CAT-21 asset is intrinsically linked to an generated image.
+The generative cat art is a fundamental part of this protocol.
+We have to chose a free open-source library that will render the required cat images.
 
 * **Format**: The images will be generated in a standard web-friendly format (e.g., PNG).
 * **Dimensions**: The dimensions of the generated images will be consistent across all CAT-21 assets.
 * **Storage**: Images are not stored on the blockchain but are generated on-demand using the transaction ID as a seed.
 
-### Library and Tools
+### Locating CAT-21 Mint Transactions
+
+Existing CAT-21 Mint Transactions can be easily searched using Blockchair's search functionality.
+The following links provide pre-configured queries according to CAT-21 protocol rules:
+
+1. [Query for Mainnnet](https://blockchair.com/bitcoin/transactions?q=lock_time(21),input_count(1),output_count(1)#f=hash,block_id,input_count,output_count,time,lock_time)
+2. [Query for Testnet](https://blockchair.com/bitcoin/testnet/transactions?q=lock_time(21),input_count(1),output_count(1)#f=hash,block_id,input_count,output_count,time,lock_time) 
+
+These queries are designed to filter transactions based on specific criteria outlined in the CAT-21 protocol, 
+such as `nLockTime` set to `21`, and having only one input and one output.
+However, it's important to note the following limitations in the current query setup:
+
+- **Activation Block Height**: The queries do not currently account for the activation block height, as this detail has not yet been decided. 
+  Once the specific block height is determined, it should be incorporated into the search criteria to ensure only valid CAT-21 transactions from the activation point forward are included.
+- **Transaction Type**: The queries do not filter based on transaction type. 
+  As per the CAT-21 protocol, a valid CAT-21 mint transaction must be a Taproot (P2TR) transaction.
+
+### CAT-21 Ecosystem
 
 * A library will be developed to facilitate the generation of cat images based on transaction IDs.
 * Tools for verifying and displaying CAT-21 assets will be made available.
@@ -50,7 +71,7 @@ CAT-21 transactions are identified using the `nLockTime` field in a Bitcoin tran
 
 ## Future Development
 
-### Open Development
+### Open Discussion
 
 The protocol may be expanded to include additional features based on community feedback and technological advancements.
 Please make a pull request to the [cat-21 repository](https://github.com/haushoppe/cat-21) to participate in the open development.
