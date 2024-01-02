@@ -11,9 +11,9 @@ CAT-21 transactions are identified using the `nLockTime` field in a Bitcoin tran
 ### Identification of a CAT-21 Mint Transaction
 
 1. **nLockTime Value**: A transaction is considered a CAT-21 mint if its `nLockTime` value is set to `21`.
-2. **Transaction Type**: A CAT-21 mint transactions must be Taproot transactions, using pay-to-taproot (P2TR) addresses, also known as Bech32m addresses.
+2. **Transaction Type**: A CAT-21 mint transaction must be a Taproot transaction, using pay-to-taproot (P2TR) addresses.
 3. **Single Input and Output**: For mint transactions, only one input and one output are allowed to ensure simplicity and clarity.
-4. **Ownership**: The ownership of a CAT-21 asset is determined by the first Satoshi in the transaction, in line with [Ordinals theory](https://docs.ordinals.com/overview.html).
+4. **Ownership**: The ownership of a CAT-21 asset is determined by the entity controlling the first Satoshi in the transaction output, in line with the [Ordinal Theory](https://docs.ordinals.com/overview.html).
 5. **Image Association**: Each CAT-21 asset is intrinsically linked to an image.
   This image is generated based on the transaction ID of the mint transaction, creating a unique pixelated cat image.
 
@@ -26,12 +26,12 @@ CAT-21 transactions are identified using the `nLockTime` field in a Bitcoin tran
 ### Immutability
 
 1. Digital CAT-21 assets can't be destroyed, they are immutable on the Bitcoin blockchain.
-2. IF A CAT-21 asset is sent to a "burner" address, the cat still exists but has no owner anymore. (The cat is free!)
+2. If a CAT-21 asset is sent to a "burner" address, the cat still exists but has no owner anymore. (The cat is free!)
 
 
 ## Image Representation (TODO)
 
-### Generative Cat art
+### Generative Cat Art
 
 * **Format**: The images will be generated in a standard web-friendly format (e.g., PNG).
 * **Dimensions**: The dimensions of the generated images will be consistent across all CAT-21 assets.
@@ -46,15 +46,17 @@ CAT-21 transactions are identified using the `nLockTime` field in a Bitcoin tran
 
 ## Future Development
 
+### Open Development
+
 The protocol may be expanded to include additional features based on community feedback and technological advancements.
-Please make a PR to this repository to participate in the open developmenti
+Please make a pull request to the [cat-21 repository](https://github.com/haushoppe/cat-21) to participate in the open development.
 
 The CAT-21 protocol introduces a novel way of digital asset representation and transaction on the Bitcoin blockchain, inviting marketplaces, wallets, and indexers to adopt and integrate this disruptive protocol in the broader ecosystem!
 
 ### Roadmap
 
 1. Development of a sound Protocol Specification (this document)
-2. Reference implementation on ordpool-parser (the engine that parses digital artificats on Ordpool.Space)
+2. Reference implementation in the [ordpool-parser repository](https://github.com/haushoppe/ordpool-parser) (the engine that parses digital artifacts on ordpool.space)
 3. Development of a simple script (TypeScript preferred) that creates a PSBT to mint a CAT-21 asset
 4. Open invitation of the Ordinals ecosystem to adapt the protocol in their products!
 
@@ -63,4 +65,4 @@ The CAT-21 protocol introduces a novel way of digital asset representation and t
 
 The idea for this protocol came from this [twitter conversation](https://twitter.com/HausHoppe/status/1741789980551213207).
 [@1440000bytes](https://twitter.com/1440000bytes) had the initial idea to use the `nLockTime` field for data storage.
-[@HausHoppe](https://twitter.com/HausHoppe) adapted the idea and created this repository to engage collobration and discussions on the protocol.
+[@HausHoppe](https://twitter.com/HausHoppe) adapted the idea and created this repository to engage collaboration and discussions on the protocol.
