@@ -16,6 +16,10 @@ CAT-21 transactions are identified using the `nLockTime` field in a Bitcoin tran
 4. **Ownership**: The ownership of a CAT-21 asset is determined by the entity controlling the first Satoshi in the transaction output, in line with the [Ordinal Theory](https://docs.ordinals.com/overview.html).
 5. **Image Association**: Each CAT-21 asset is intrinsically linked to an image.
   This image is generated based on the transaction ID of the mint transaction, creating a unique pixelated cat image.
+6. **Activation Block Height**: The CAT-21 protocol becomes active starting from a specific block height.
+  Only mint transactions occurring at this block height or later will be recognized as valid CAT-21 Mint Transactions. 
+  This approach ensures that indexers are not required to parse the entire blockchain from its inception. 
+  **The specific block height for activation has not yet been decided!** Once decided, this section of the protocol will be updated accordingly.
 
 ### Transferring CAT-21 assets
 
