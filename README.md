@@ -37,9 +37,9 @@ CAT-21 transactions are identified using the `nLockTime` field in a Bitcoin tran
 
 ### Image Representation
 
-Each CAT-21 asset is intrinsically linked to an generated image.
-The generative cat art is a fundamental part of this protocol.
-We have to chose a free open-source library that will render the required cat images.
+Each CAT-21 asset is intrinsically linked to a generated image. 
+The creation of generative cat art is a fundamental part of this protocol. 
+We must choose a free, open-source library that will render the required cat images.
 
 * **Format**: The images will be generated in a standard web-friendly format (e.g., PNG).
 * **Dimensions**: The dimensions of the generated images will be consistent across all CAT-21 assets.
