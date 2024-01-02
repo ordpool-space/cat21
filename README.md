@@ -1,5 +1,7 @@
 # CAT-21 Protocol Specification
 
+![Banner](mooncats-banner.png)
+
 ## Overview
 
 CAT-21 is a new protocol developed to operate on top of the Bitcoin blockchain and leverages the Ordinals concept.
