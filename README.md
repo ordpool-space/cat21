@@ -10,10 +10,14 @@ CAT-21 transactions are identified using the `nLockTime` field in a Bitcoin tran
 
 ## Protocol Rules
 
+In this document, the terms "shall" and "should" are used to convey different levels of requirement:
+- "Shall" is used to indicate requirements strictly to be followed in order to conform to the document and from which no deviation is permitted.
+- "Should" is used to indicate that among several possibilities one is recommended as particularly suitable, without mentioning or excluding others, or that a certain course of action is preferred but not necessarily required.
+
 ### Identification of a CAT-21 Mint Transaction
 
-1. **nLockTime Value**: A transaction is considered a CAT-21 mint if its [`nLockTime`](https://en.bitcoin.it/wiki/NLockTime) value is set to `21`.
-2. **Transaction Type**: A CAT-21 mint transaction must be a payment to a pay-to-taproot (P2TR) address (which starts with `bc1p`).
+1. **nLockTime Value**: A transaction is recognized as a CAT-21 mint if its [`nLockTime`](https://en.bitcoin.it/wiki/NLockTime) value is set to `21`. This is a hard requirement, meaning it **shall**"** be followed for the transaction to be acknowledged as a CAT-21 mint.
+2. **Transaction Type**: A CAT-21 mint transaction should be a payment to a pay-to-taproot (P2TR) address (which starts with `bc1p`). This recommendation is made to ensure consistency within the protocol and to ensure the best compatibility with existing Ordinals-aware wallets. However, this is not a strict requirement. Other types of addresses may be used, but P2TR is preferred.
 3. **First Output Matters**: For a mint transaction, only the first output is important. It defines the recipient of the CAT-21 mint. All other inputs and outputs are ignored. Therefore, every Bitcoin transaction can create exactly one cat.
 4. **Ownership**: The ownership of a CAT-21 asset is determined by the entity controlling the first Satoshi in the transaction output, in line with the [Ordinal Theory](https://docs.ordinals.com/overview.html).
 5. **Image Association**: Each CAT-21 asset is intrinsically linked to an image.
@@ -33,26 +37,50 @@ CAT-21 transactions are identified using the `nLockTime` field in a Bitcoin tran
 
 ## Library and Tools
 
+<img src="assets/genesis-cat.svg" title="Genesis cat" width="25%" align="right">
+
 ### Image Representation
 
 Each CAT-21 asset is intrinsically linked to a generated image. 
-The creation of generative cat art is a fundamental part of this protocol. 
-We must choose a free, open-source library that will render the required cat images.
+The creation of generative cat art is a fundamental part of this protocol.
+The pixelated cat images are inspired by the famous [Mooncat Algorithm](https://github.com/ponderware/mooncatparser/), adapted to meet new requirements.
 
-* **Format**: The images will be generated in a standard web-friendly format (e.g., PNG).
-* **Dimensions**: The dimensions of the generated images will be consistent across all CAT-21 assets.
+* **Seed**: The seed for generating an image is the transaction ID itself, interchangeable with the term 'catId'. 
+  Contrary to the original Mooncats algorithm, there are no assigned seeds; only the transaction ID is used.
+* **Format**: The images should be generated in a web-friendly, scalable format, with SVG being preferred.
+* **Traits**: The existing traits from the original Ethereum Mooncats are utilized, with additional new traits such as laser eyes and an orange background. 
+  More traits can be added in future versions of this document. 
+  The distribution of the 'genesis' trait is revised, as there are no boolean values in a transaction ID.
+* **Dimensions**: The dimensions of the generated images shall be squares.
 * **Storage**: Images are not stored on the blockchain but are generated on-demand using the transaction ID as a seed.
+* **Reference Implementation**: The artwork is defined by the reference implementation in the [ordpool-parser repository](https://github.com/haushoppe/ordpool-parser) (the engine that parses digital artifacts on ordpool.space). 
+  All other implementations should result in the exact same visual appearance to maintain consistency across the protocol.
 
 ### Locating CAT-21 Mint Transactions
 
-Existing CAT-21 Mint Transactions can be easily searched using Blockchair's search functionality.
+Existing CAT-21 Mint Transactions can be discovered using Blockchair's search functionality.
 The following links provide pre-configured queries according to CAT-21 protocol rules:
 
 1. [Query for Mainnet](https://blockchair.com/bitcoin/transactions?q=lock_time(21)#f=hash,block_id,input_count,output_count,time,lock_time)
 2. [Query for Testnet](https://blockchair.com/bitcoin/testnet/transactions?q=lock_time(21)#f=hash,block_id,input_count,output_count,time,lock_time) 
 
+Existing CAT-21 Mint Transactions can  also located via the Bitquery Grapqhl API:
+
+```
+query txns {
+  bitcoin {
+    transactions(txLocktime: {is: 21}) {
+      hash
+      txLocktime
+      block {
+        height
+      }
+    }
+  }
+}
+``` 
+
 These queries are designed to filter transactions based the `nLockTime` set to `21`.
-However, it's important to note that the queries do not filter based on transaction type. As per the CAT-21 protocol, a valid CAT-21 mint transaction must be a payment to a pay-to-taproot (P2TR) address.
 
 ### CAT-21 Ecosystem
 
@@ -72,8 +100,8 @@ The CAT-21 protocol introduces a novel way of digital asset representation and t
 
 ### Roadmap
 
-1. Development of a sound Protocol Specification (this document)
-2. Reference implementation in the [ordpool-parser repository](https://github.com/haushoppe/ordpool-parser) (the engine that parses digital artifacts on ordpool.space)
+1. ✅ Development of a sound Protocol Specification (this document)
+2. ✅ Reference implementation in the [ordpool-parser repository](https://github.com/haushoppe/ordpool-parser)
 3. Development of a simple script (TypeScript preferred) that creates a PSBT to mint a CAT-21 asset
 4. Open invitation of the Ordinals ecosystem to adapt the protocol in their products!
 

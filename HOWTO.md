@@ -37,12 +37,13 @@ In this example, the address to receive the money is `351[...]1Pk`.
 
 As soon as your wallet is funded, you can mint cats!
 Go to the tab **"Send"** and enter a valid Taproot address that should receive the cat.
-Only Taproot addresses are valid receivers for a CAT-21 mint transaction!
+Only Taproot addresses **should** be used to receive a CAT-21 mint transaction.
+This recommendation is made to ensure consistency within the protocol and to ensure the best compatibility with existing Ordinals-aware wallets.
 A Taproot address always starts with the prefix `bc1p`.
 
 In this example, we will send a cat to the wallet that holds the Genesis cat, which is `bc1p85ra9kv6a48yvk4mq4hx08wxk6t32tdjw9ylahergexkymsc3uwsdrx6sh`.
 Change this to an address you control if you want to mint the cat for yourself.
-You can also gift the cat to someone else, if you know they address to receive digital artifacts – like inscriptions, rate sats, or cats!
+You can also gift the cat to someone else, if you know their address to receive digital artifacts – like inscriptions, rate sats, or cats!
 
 For the amount you must choose a value which is `546` sat or greater.
 Now click on **"Pay…"**.
@@ -51,14 +52,15 @@ Now click on **"Pay…"**.
 
 ##### Enable Edit Locktime
 
-Before you send the transaction, make sure that you click on the **"Settings"** button in the top right corner. Enable **"Edit Locktime"**. 
+Before you send the transaction, make sure that you click on the **"Settings"** button in the top right corner.
+Enable **"Edit Locktime"**. 
 
 ![Screenshot](assets/screenshot-edit-locktime.png)
 
 ##### Set LockTime to `21`
 
 This is now very important!
-The locktime must be exactly `21` (Block height).
+The locktime **shall** be exactly `21` (Block height).
 Only by having this value the transaction is a valid CAT-21 mint!
 
 Choose a fee rate that fits your budget and time preferrence.
@@ -69,7 +71,8 @@ The fees according to ordpool.space were around 170 sat/byte to get into the nex
 If you feel comfortable, then adjust the fee rates manually to pay the optimal price.
 
 Press **"Ok"** to start the mint!
-If you use a hardware wallet like Ledger, make sure it's unlocked and that the Bitcoin app is running. Confirm the transaction on the device.
+If you use a hardware wallet like Ledger, make sure it's unlocked and that the Bitcoin app is running.
+Confirm the transaction on the device.
 
 ![Screenshot](assets/screenshot-blockheight-21.png)
 
@@ -77,7 +80,8 @@ If you use a hardware wallet like Ledger, make sure it's unlocked and that the B
 
 The confirmation screen shows you the transaction ID of the mint. 
 Copy the number to the clipboard (in this case it's `98316dcb21daaa221865208fe0323616ee6dd84e6020b78bc6908e914ac03892`) and go to 
-https://ordpool.space . Enter the transaction ID in the search bar and press **"Go to"** to enter the transaction details page.
+https://ordpool.space . 
+Enter the transaction ID in the search bar and press **"Go to"** to enter the transaction details page.
 
 ![Screenshot](assets/screenshot-ordpool-search.png)
 
