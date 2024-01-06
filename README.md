@@ -64,7 +64,7 @@ The following links provide pre-configured queries according to CAT-21 protocol 
 1. [Query for Mainnet](https://blockchair.com/bitcoin/transactions?q=lock_time(21)#f=hash,block_id,input_count,output_count,time,lock_time)
 2. [Query for Testnet](https://blockchair.com/bitcoin/testnet/transactions?q=lock_time(21)#f=hash,block_id,input_count,output_count,time,lock_time) 
 
-Existing CAT-21 Mint Transactions can  also located via the Bitquery Grapqhl API:
+Existing CAT-21 Mint Transactions can  also located via the [Bitquery Grapqhl API](https://ide.bitquery.io/):
 
 ```
 query txns {
@@ -84,9 +84,8 @@ These queries are designed to filter transactions based the `nLockTime` set to `
 
 ### CAT-21 Ecosystem
 
-* A library will be developed to facilitate the generation of cat images based on transaction IDs.
-* Tools for verifying and displaying CAT-21 assets will be made available.
-* CAT-21 Mint Transactions will be displayed on https://ordpool.space 
+* CAT-21 Mint Transactions are displayed on https://ordpool.space 
+* MORE LINKS WITH COMPATIBLE SERVICES HERE (PRs welcome!)
 
 
 ## Future Development
