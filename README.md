@@ -1,8 +1,6 @@
 # CAT-21 Protocol Specification
 
-<img src="assets/genesis-cat.svg" title="Genesis cat" width="33%" align="left">
-<img src="assets/cat1.svg" title="Genesis cat" width="33%" align="left">
-<img src="assets/cat2.svg" title="Genesis cat" width="33%" align="left">
+![Orange Banner](assets/cat21-banner.svg)
 
 ## Overview
 
