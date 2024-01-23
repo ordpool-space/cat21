@@ -1,6 +1,8 @@
 # CAT-21 Protocol Specification
 
-![Banner](mooncats-banner.png)
+<img src="assets/genesis-cat.svg" title="Genesis cat" width="33%" align="left">
+<img src="assets/cat1.svg" title="Genesis cat" width="33%" align="left">
+<img src="assets/cat2.svg" title="Genesis cat" width="33%" align="left">
 
 ## Overview
 
@@ -45,14 +47,14 @@ Each CAT-21 asset is intrinsically linked to a generated image.
 The creation of generative cat art is a fundamental part of this protocol.
 The pixelated cat images are inspired by the famous [Mooncat Algorithm](https://github.com/ponderware/mooncatparser/), adapted to meet new requirements.
 
-* **Seed**: The seed for generating an image is the transaction ID itself, interchangeable with the term 'catId'. 
-  Contrary to the original Mooncats algorithm, there are no assigned seeds; only the transaction ID is used.
+* **Seed**: The seed for generating the image and traits is retrieved from the concatenated `transactionId` and `blockId`, hashed using the SHA-256 algorithm. 
+  By using this method, the characteristics of each CAT-21 asset will only be determinable after the transaction is included in a block, 
+  thus preventing anyone from generating transactions until they get a desirable outcome.
+  This approach ensures fairness and unpredictability in the distribution of rare traits.
 * **Format**: The images should be generated in a web-friendly, scalable format, with SVG being preferred.
-* **Traits**: The existing traits from the original Ethereum Mooncats are utilized, with additional new traits such as laser eyes and an orange background. 
-  More traits can be added in future versions of this document. 
-  The distribution of the 'genesis' trait is revised, as there are no boolean values in a transaction ID.
+* **Traits**: The existing traits from the original Ethereum Mooncats are utilized, with additional new traits such as red, green, and blue laser eyes and an orange background. 
 * **Dimensions**: The dimensions of the generated images shall be squares.
-* **Storage**: Images are not stored on the blockchain but are generated on-demand using the transaction ID as a seed.
+* **Storage**: Images and Traits are not stored on the blockchain but are generated on-demand using the concatenated `transactionId` and `blockId` as a seed.
 * **Reference Implementation**: The artwork is defined by the reference implementation in the [ordpool-parser repository](https://github.com/haushoppe/ordpool-parser) (the engine that parses digital artifacts on ordpool.space). 
   All other implementations should result in the exact same visual appearance to maintain consistency across the protocol.
 
@@ -64,7 +66,7 @@ The following links provide pre-configured queries according to CAT-21 protocol 
 1. [Query for Mainnet](https://blockchair.com/bitcoin/transactions?q=lock_time(21)#f=hash,block_id,input_count,output_count,time,lock_time)
 2. [Query for Testnet](https://blockchair.com/bitcoin/testnet/transactions?q=lock_time(21)#f=hash,block_id,input_count,output_count,time,lock_time) 
 
-Existing CAT-21 Mint Transactions can  also located via the [Bitquery Grapqhl API](https://ide.bitquery.io/):
+Existing CAT-21 Mint Transactions can also be located via the [Bitquery Grapqhl API](https://ide.bitquery.io/):
 
 ```
 query txns {
@@ -82,9 +84,14 @@ query txns {
 
 These queries are designed to filter transactions based the `nLockTime` set to `21`.
 
+The official indexer at https://backend.cat21.spaces uses the Blockchair API as a source of truth and
+enriches this information with sat ranges from the Ord API.
+
 ### CAT-21 Ecosystem
 
-* CAT-21 Mint Transactions are displayed on https://ordpool.space 
+* The official website is https://cat21.space
+* CAT-21 Mint Transactions in the Mempool are displayed on https://ordpool.space  _(at launch date)_
+* Confirmed CAT-21 Mint Transactions are displayed on https://ordimint.com  _(at launch date)_
 * MORE LINKS WITH COMPATIBLE SERVICES HERE (PRs welcome!)
 
 
@@ -101,12 +108,14 @@ The CAT-21 protocol introduces a novel way of digital asset representation and t
 
 1. ✅ Development of a sound Protocol Specification (this document)
 2. ✅ Reference implementation in the [ordpool-parser repository](https://github.com/haushoppe/ordpool-parser)
-3. Development of a simple script (TypeScript preferred) that creates a PSBT to mint a CAT-21 asset
-4. Open invitation of the Ordinals ecosystem to adapt the protocol in their products!
+3. ✅ Open-Source Indexer for CAT-21 assets in [cat-21-indexer repository](https://github.com/haushoppe/cat-21-indexer)
+4. Development of a simple script (TypeScript preferred) that creates a PSBT to mint a CAT-21 asset
+6. Open invitation of the Ordinals ecosystem to adapt the protocol in their products!
 
 
-## Idea and concept
+## Credits
 
-The idea for this protocol came from this [twitter conversation](https://twitter.com/HausHoppe/status/1741789980551213207).
-[@1440000bytes](https://twitter.com/1440000bytes) had the initial idea to use the `nLockTime` field for data storage.
-[@HausHoppe](https://twitter.com/HausHoppe) adapted the idea and created this repository to engage collaboration and discussions on the protocol.
+* [@1440000bytes](https://twitter.com/1440000bytes) had the initial idea to use the `nLockTime` field for data storage. See this this [twitter conversation](https://twitter.com/HausHoppe/status/1741789980551213207).
+* [@HausHoppe](https://twitter.com/HausHoppe) adapted the idea and created this repository to engage collaboration and discussions on the protocol. He also developed the parser, the indexer and the official website.
+* [@ethspresso](https://twitter.com/ethspresso) designed the laser eyes and gave very valuable feedback.
+* [@LightRider5](https://twitter.com/LightRider5) created the PSBT script and gave very valuable feedback.
