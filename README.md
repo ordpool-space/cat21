@@ -19,20 +19,20 @@ In this document, the terms "shall" and "should" are used to convey different le
 1. **nLockTime Value**: A transaction is recognized as a CAT-21 mint if its [`nLockTime`](https://en.bitcoin.it/wiki/NLockTime) value is set to `21`. This is a hard requirement, meaning it **shall** be followed for the transaction to be acknowledged as a CAT-21 mint.
 2. **Transaction Type**: A CAT-21 mint transaction should be a payment to a pay-to-taproot (P2TR) address (which starts with `bc1p`). This recommendation is made to ensure consistency within the protocol and to ensure the best compatibility with existing Ordinals-aware wallets. However, this is not a strict requirement. Other types of addresses may be used, but P2TR is preferred.
 3. **First Output Matters**: For a mint transaction, only the first output is important. It defines the recipient of the CAT-21 mint. All other inputs and outputs are ignored. Therefore, every Bitcoin transaction can create exactly one cat.
-4. **Ownership**: The ownership of a CAT-21 asset is determined by the entity controlling the first Satoshi in the transaction output, in line with the [Ordinal Theory](https://docs.ordinals.com/overview.html).
-5. **Image Association**: Each CAT-21 asset is intrinsically linked to an image.
+4. **Ownership**: The ownership of a CAT-21 ordinal is determined by the entity controlling the first Satoshi in the transaction output, in line with the [Ordinal Theory](https://docs.ordinals.com/overview.html).
+5. **Image Association**: Each CAT-21 ordinal is intrinsically linked to an image.
   This image is generated based on the transaction ID of the mint transaction, creating a unique pixelated cat image.
 
-### Transferring CAT-21 assets
+### Transferring CAT-21 ordinals
 
 1. CAT-21 can be transferred using standard Bitcoin transactions.
-2. The new owner of a CAT-21 asset is the entity controlling the first Satoshi of the mint transaction output.
+2. The new owner of a CAT-21 ordinal is the entity controlling the first Satoshi of the mint transaction output.
    This is the same concept that applies to Ordinals and Inscriptions – but for digital cat artifacts!
 
 ### Immutability
 
-1. Digital CAT-21 assets can't be destroyed, they are immutable on the Bitcoin blockchain.
-2. If a CAT-21 asset is sent to a "burner" address, the cat still exists but no longer has an owner. (The cat is free!)
+1. Digital CAT-21 ordinals can't be destroyed, they are immutable on the Bitcoin blockchain.
+2. If a CAT-21 ordinal is sent to a "burner" address, the cat still exists but no longer has an owner. (The cat is free!)
 
 
 ## Library and Tools
@@ -41,12 +41,12 @@ In this document, the terms "shall" and "should" are used to convey different le
 
 ### Image Representation
 
-Each CAT-21 asset is intrinsically linked to a generated image. 
+Each CAT-21 ordinal is intrinsically linked to a generated image. 
 The creation of generative cat art is a fundamental part of this protocol.
 The pixelated cat images are inspired by the famous [Mooncat Algorithm](https://github.com/ponderware/mooncatparser/), adapted to meet new requirements.
 
 * **Seed**: The seed for generating the image and traits is retrieved from the concatenated `transactionId` and `blockId`, hashed using the SHA-256 algorithm. 
-  By using this method, the characteristics of each CAT-21 asset will only be determinable after the transaction is included in a block, 
+  By using this method, the characteristics of each CAT-21 ordinal will only be determinable after the transaction is included in a block, 
   thus preventing anyone from generating transactions until they get a desirable outcome.
   This approach ensures fairness and unpredictability in the distribution of rare traits.
 * **Format**: The images should be generated in a web-friendly, scalable format, with SVG being preferred.
@@ -106,8 +106,8 @@ The CAT-21 protocol introduces a novel way of digital asset representation and t
 
 1. ✅ Development of a sound Protocol Specification (this document)
 2. ✅ Reference implementation in the [ordpool-parser repository](https://github.com/haushoppe/ordpool-parser)
-3. ✅ Open-Source Indexer for CAT-21 assets in [cat-21-indexer repository](https://github.com/haushoppe/cat-21-indexer)
-4. Development of a simple script (TypeScript preferred) that creates a PSBT to mint a CAT-21 asset
+3. ✅ Open-Source Indexer for CAT-21 ordinals in [cat-21-indexer repository](https://github.com/haushoppe/cat-21-indexer)
+4. Development of a simple script (TypeScript preferred) that creates a PSBT to mint a CAT-21 ordinal
 6. Open invitation of the Ordinals ecosystem to adapt the protocol in their products!
 
 

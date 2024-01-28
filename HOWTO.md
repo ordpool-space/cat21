@@ -1,6 +1,6 @@
 # CAT-21 - How to
 
-## How to mint a CAT-21 asset
+## How to mint a CAT-21 ordinal
 
 
 ### 1. Install Electrum
@@ -31,7 +31,7 @@ In this example, the address to receive the money is `351[...]1Pk`.
 
 ![Screenshot](assets/screenshot-receive.png)
 
-#### 4. Mint a CAT-21 asset
+#### 4. Mint a CAT-21 ordinal
 
 ##### Prepare the payment
 
@@ -86,5 +86,5 @@ Enter the transaction ID in the search bar and press **"Go to"** to enter the tr
 ![Screenshot](assets/screenshot-ordpool-search.png)
 
 Here you can see all details of your transaction and the cat artwork!
-Congratulations you minted your first CAT-21 asset and brought a bit more fun and joy to the Bitcoin universe!
+Congratulations you minted your first CAT-21 ordinal and brought a bit more fun and joy to the Bitcoin universe!
 
