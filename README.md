@@ -53,7 +53,7 @@ The pixelated cat images are inspired by the famous [Mooncat Algorithm](https://
 * **Traits**: The existing traits from the original Ethereum Mooncats are utilized, with additional new traits such as red, green, and blue laser eyes and an orange background. 
 * **Dimensions**: The dimensions of the generated images shall be squares.
 * **Storage**: Images and Traits are not stored on the blockchain but are generated on-demand using the concatenated `transactionId` and `blockId` as a seed.
-* **Reference Implementation**: The artwork is defined by the reference implementation in the [ordpool-parser repository](https://github.com/haushoppe/ordpool-parser) (the engine that parses digital artifacts on ordpool.space). 
+* **Reference Implementation**: The artwork is defined by the reference implementation in the [ordpool-parser repository](https://github.com/ordpool-space/ordpool-parser) (the engine that parses digital artifacts on ordpool.space). 
   All other implementations should result in the exact same visual appearance to maintain consistency across the protocol.
 
 ### Locating CAT-21 Mint Transactions
@@ -88,8 +88,8 @@ enriches this information with sat ranges from the Ord API.
 ### CAT-21 Ecosystem
 
 * The official website is https://cat21.space
-* CAT-21 Mint Transactions in the Mempool are displayed on https://ordpool.space  _(at launch date)_
-* Confirmed CAT-21 Mint Transactions are displayed on https://ordimint.com  _(at launch date)_
+* CAT-21 Mint Transactions in the Mempool are displayed on https://ordpool.space
+* Confirmed CAT-21 Mint Transactions are displayed on https://ordimint.com
 * MORE LINKS WITH COMPATIBLE SERVICES HERE (PRs welcome!)
 
 
@@ -98,22 +98,24 @@ enriches this information with sat ranges from the Ord API.
 ### Open Discussion
 
 The protocol may be expanded to include additional features based on community feedback and technological advancements.
-Please make a pull request to the [cat-21 repository](https://github.com/haushoppe/cat-21) to participate in the open development.
+Please make a pull request to the [cat21 repository](https://github.com/ordpool-space/cat21) to participate in the open development.
 
 The CAT-21 protocol introduces a novel way of digital asset representation and transaction on the Bitcoin blockchain, inviting marketplaces, wallets, and indexers to adopt and integrate this disruptive protocol in the broader ecosystem!
 
 ### Roadmap
 
 1. ✅ Development of a sound Protocol Specification (this document)
-2. ✅ Reference implementation in the [ordpool-parser repository](https://github.com/haushoppe/ordpool-parser)
-3. ✅ Open-Source Indexer for CAT-21 ordinals in [cat-21-indexer repository](https://github.com/haushoppe/cat-21-indexer)
-4. Development of a simple script (TypeScript preferred) that creates a PSBT to mint a CAT-21 ordinal
-6. Open invitation of the Ordinals ecosystem to adapt the protocol in their products!
+2. ✅ Reference implementation in the [ordpool-parser repository](https://github.com/ordpool-space/ordpool-parser)
+3. ✅ Open-Source Indexer for CAT-21 ordinals in the [cat21-ord repository](https://github.com/ordpool-space/cat21-ord)
+4. ✅ Development of a client-side script that creates a PSBT to mint a CAT-21 ordinal (for Xverse, Leather & Unisat)
+5. ✅ Public mint 🚀
+6. Open invitation of the Ordinals ecosystem to adapt the protocol in their products! DM [@HausHoppe](https://twitter.com/HausHoppe) for support!
+
 
 
 ## Credits
 
-* [@1440000bytes](https://twitter.com/1440000bytes) had the initial idea to use the `nLockTime` field for data storage. See this this [twitter conversation](https://twitter.com/HausHoppe/status/1741789980551213207).
+* [@1440000bytes](https://twitter.com/1440000bytes) had the initial idea to use the `nLockTime` field for data storage. See this this [twitter conversation](https://twitter.com/ordpool-space/status/1741789980551213207).
 * [@HausHoppe](https://twitter.com/HausHoppe) adapted the idea and created this repository to engage collaboration and discussions on the protocol. He also developed the parser, the indexer and the official website.
-* [@ethspresso](https://twitter.com/ethspresso) designed the laser eyes and gave very valuable feedback.
-* [@LightRider5](https://twitter.com/LightRider5) created the PSBT script and gave very valuable feedback.
+* [@ethspresso](https://twitter.com/ethspresso) designed the laser eyes and crown traits and gave very valuable feedback.
+* [@LightRider5](https://twitter.com/LightRider5) created the initial PSBT script and gave very valuable feedback.
