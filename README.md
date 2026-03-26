@@ -18,7 +18,6 @@ The following terms are used throughout this specification:
 ## The Protocol
 
 Collecting, gifting, and trading form social connections. Art makes every satoshi more valuable. CAT-21 gives owners something to cherish and build communities around.
-
 The CAT-21 protocol is founded on a genesis act, validated by consensus, and manifested through proof of work.
 
 ### Genesis
@@ -55,7 +54,7 @@ This seed formula is immutable. Changing it would alter the identity of every ex
 
 ### Scarcity and Supply
 
-There is no artificial supply cap. The supply of cats is unlimited. A single CAT-21 ordinal can carry multiple cats through repeated minting. The number of CAT-21 ordinals is bounded by the total supply of spendable satoshis. Any entity can mint a cat at any time. The only requirement is a confirmed Bitcoin transaction with `nLockTime` set to `21`. No permission is required. This property is enforced by the Bitcoin network itself. A protocol cannot be capped. A protocol cannot be stopped.
+There is no artificial supply cap. The supply of cats is unlimited. A single CAT-21 ordinal can carry multiple cats through repeated minting. The number of CAT-21 ordinals is bounded by the total supply of spendable satoshis. Any entity can mint a cat at any time. No permission is required. This property is enforced by the Bitcoin network itself. A protocol cannot be capped. A protocol cannot be stopped.
 
 Scarcity in CAT-21 is a product of time. Cat #0 can never be minted again. Earlier cats receive lower numbers, and lower numbers can never be assigned again. Categories such as sub1k, sub10k, and sub100k emerge naturally as more cats are minted. Every new mint makes all previous cats more scarce. You are never late. The CAT-21 protocol celebrates every newly revealed cat.
 
