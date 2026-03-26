@@ -4,7 +4,7 @@
 
 ## Overview
 
-CAT-21 is a protocol built on Bitcoin and Ordinal Theory. Collecting, gifting, and trading form social connections. Art makes every satoshi more valuable. CAT-21 fulfills this by associating unique cat art with individual satoshis, giving their owners something to cherish and build communities around. Its transactions are identified using the `nLockTime` field in a Bitcoin transaction, set to the value `21`.
+CAT-21 is a protocol that associates unique cat art with individual satoshis on Bitcoin.
 
 ## Terminology
 
@@ -15,21 +15,19 @@ The following terms are used throughout this specification:
 3. **CAT-21 ordinal**: An ordinal that received one or more cats through a CAT-21 mint transaction (`nLockTime` set to `21`). Once an ordinal receives a cat, it is referred to as a CAT-21 ordinal from that point on.
 4. **Cat**: The digital artifact defined by the CAT-21 protocol. Each cat is revealed through a CAT-21 mint transaction and intrinsically linked to a unique deterministic image derived from the transaction hash and block hash. A single CAT-21 ordinal can carry multiple cats.
 
-## Protocol Rules
+## The Protocol
 
-In this document, the terms "shall" and "should" are used to convey different levels of requirement:
-- "Shall" is used to indicate requirements strictly to be followed in order to conform to the document and from which no deviation is permitted.
-- "Should" is used to indicate that among several possibilities one is recommended as particularly suitable, without mentioning or excluding others, or that a certain course of action is preferred but not necessarily required.
+Collecting, gifting, and trading form social connections. Art makes every satoshi more valuable. CAT-21 gives owners something to cherish and build communities around.
 
-The following rules derive their legitimacy from a founding act, validated by consensus, manifested through proof of work. This argumentation is self-evident and can be independently verified by any entity. The rules are immutable. They are preserved on the Bitcoin ledger and cannot be changed.
+The CAT-21 protocol is founded on a genesis act, validated by consensus, and manifested through proof of work.
 
 ### Genesis
 
-The first ever Bitcoin transaction with `nLockTime` set to `21` created this protocol. Its creator gave it meaning. First is first. This act of creation is preserved on the Bitcoin ledger and cannot be undone.
+For a long time, no one had ever set `nLockTime` to `21` in all of Bitcoin's history. The creator of this protocol performed the first such transaction to secure the right to give it meaning. The protocol was then developed through this specification and an initial mint phase. First is first.
 
 ### Consensus
 
-Bitcoin is consensus. Ordinal Theory is consensus. If we agree to count sats, they become ordinals. If we agree that `nLockTime=21` reveals cats, it does. By setting `nLockTime` to `21`, the minting entity accepts the rules of this protocol. No authority enforces this. The protocol exists because its participants choose to follow it. This is the same mechanism that gives Bitcoin its value.
+Bitcoin is consensus. Ordinal Theory is consensus. If we agree to count sats, they become ordinals. If we agree that `nLockTime=21` reveals cats, it does. By setting `nLockTime` to `21`, the minting entity enters this reality. No authority enforces this. The protocol exists because its participants choose to follow it. This is the same mechanism that gives Bitcoin its value.
 
 ### Proof of Cat Work
 
@@ -39,23 +37,27 @@ Bitcoin's value and security are based on accumulated proof of work. Every new b
 
 A CAT-21 mint transaction has its `nLockTime` set to `21`. No exceptions.
 
-The mint transaction should be a payment to a pay-to-taproot (P2TR) address (which starts with `bc1p`) to ensure the best compatibility with existing Ordinals-aware wallets. However, this is not a strict requirement. Other types of addresses may be used, but P2TR is preferred. For a mint transaction, only the first output is important. It defines the first owner of the cat. All other inputs and outputs are ignored. Every CAT-21 mint transaction reveals exactly one cat.
+The mint transaction should be a payment to a pay-to-taproot (P2TR) address (which starts with `bc1p`) to ensure the best compatibility with existing Ordinals-aware wallets. However, this is not a strict requirement. Other types of addresses may be used, but P2TR is preferred.
+
+For a mint transaction, only the first output is important. It defines the first owner of the cat. All other inputs and outputs are ignored. Every CAT-21 mint transaction reveals exactly one cat.
 
 ### Ownership
 
-A CAT-21 mint assigns a new cat to the first sat of the first output of the mint transaction, making it a CAT-21 ordinal. The entity that controls it owns the cat. Ownership of a cat shall be determined solely by control of its CAT-21 ordinal. As the CAT-21 ordinal moves through transactions, ownership follows. This is the same concept that applies to Ordinals and Inscriptions, but for digital cat artifacts!
+A CAT-21 mint assigns a new cat to the first sat of the first output of the mint transaction, making it a CAT-21 ordinal. The entity that controls it owns the cat. Ownership of a cat shall be determined solely by control of its CAT-21 ordinal. As the CAT-21 ordinal moves through transactions, ownership follows.
 
 Control is proven by the ability to spend the output containing the CAT-21 ordinal. CAT-21 ordinals move through transactions on a first-in, first-out basis. All tracking rules of Ordinal Theory apply to the CAT-21 protocol. CAT-21 ordinals and therefore cats shall only be transferred on-chain. No other form of agreement is recognized by this protocol. The ledger is the sole arbiter of ownership.
 
 ### Cat Identity
 
-Each cat has a unique, immutable identity. Every cat is secured by proof of work. Its identity is determined by `SHA256(transactionHash + blockHash)`, where the block hash is unpredictable. Unpredictability is in the nature of every cat. No entity can choose their cat. The cat was always there, waiting in the math. It can only be revealed. Every Bitcoin transaction that does not set `nLockTime` to `21` is a cat that will never be revealed. The choice to mint is the choice to reveal. This seed formula is immutable. Changing it would alter the identity of every existing cat. The art style is defined by the genesis cat holder (see Governance).
+Each cat has a unique identity, secured by proof of work. Its identity is determined by `SHA256(transactionHash + blockHash)`, where the block hash is unpredictable. Unpredictability is in the nature of every cat. No entity can choose their cat. The cat was always there, waiting in the math. It can only be revealed. Every Bitcoin transaction that does not set `nLockTime` to `21` is a cat that will never be revealed. The choice to mint is the choice to reveal.
+
+This seed formula is immutable. Changing it would alter the identity of every existing cat. The art style is defined by the genesis cat holder (see Governance).
 
 ### Scarcity and Supply
 
 There is no artificial supply cap. The supply of cats is unlimited. A single CAT-21 ordinal can carry multiple cats through repeated minting. The number of CAT-21 ordinals is bounded by the total supply of spendable satoshis. Any entity can mint a cat at any time. The only requirement is a confirmed Bitcoin transaction with `nLockTime` set to `21`. No permission is required. This property is enforced by the Bitcoin network itself. A protocol cannot be capped. A protocol cannot be stopped.
 
-Scarcity in CAT-21 is a product of time. Cat #0 can never be minted again. First is first. Earlier cats receive lower numbers, and lower numbers can never be assigned again. Categories such as sub1k, sub10k, and sub100k emerge naturally as more cats are minted. Every new mint makes all previous cats more scarce. You are never late. The CAT-21 protocol celebrates every newly revealed cat.
+Scarcity in CAT-21 is a product of time. Cat #0 can never be minted again. Earlier cats receive lower numbers, and lower numbers can never be assigned again. Categories such as sub1k, sub10k, and sub100k emerge naturally as more cats are minted. Every new mint makes all previous cats more scarce. You are never late. The CAT-21 protocol celebrates every newly revealed cat.
 
 ### Immutability
 
@@ -68,7 +70,9 @@ Bitcoin is the most durable ledger ever created. The CAT-21 protocol inherits th
 
 Cat #0 is the Genesis Cat. Its mint transaction is the first Bitcoin transaction with `nLockTime` set to `21` in all of Bitcoin's long history. This event occurred at block height 824,205. In ancient Egypt, the Genesis Cat would have sat beside Bastet herself, adorned with gold, guarded by priests, worshipped as divine. The CAT-21 protocol was not written to summon her. It was written to capture a glimpse of her greatness. The most magnificent cat that will ever exist. All others are merely echoes of her perfection. Meow!
 
-The entity that controls sat 596964966600565 according to Ordinal Theory is the sole authority over protocol changes, future development, and the definition of the cat art. A future holder has full authority to adjust any governance decision. Governance updates shall be published as inscriptions on sat 596964966600565 and become effective after 21 confirmations. But the core idea is immutable: `nLockTime=21` reveals cats.
+### Authority
+
+The entity that controls sat 596964966600565 according to Ordinal Theory is the sole authority over protocol changes, future development, and the definition of the cat art. A future holder has full authority to adjust any governance decision. Governance updates shall be published as inscriptions on sat 596964966600565 and become effective after 21 confirmations.
 
 ### Why governance exists
 
@@ -90,3 +94,9 @@ The following decisions are ossified by the first genesis cat holder. They can o
 * **ethspresso** designed the laser eyes and crown traits and gave very valuable feedback.
 * **LightRider5** created the initial PSBT minting script and gave very valuable feedback.
 * The original [Mooncats](https://mooncatrescue.com/) (2017) paved the way for on-chain generative cat art. CAT-21 carries their legacy to Bitcoin.
+
+## Appendix
+
+In this document, the terms "shall" and "should" are used to convey different levels of requirement:
+- "Shall" is used to indicate requirements strictly to be followed in order to conform to the document and from which no deviation is permitted.
+- "Should" is used to indicate that among several possibilities one is recommended as particularly suitable, without mentioning or excluding others, or that a certain course of action is preferred but not necessarily required.
