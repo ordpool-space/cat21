@@ -62,6 +62,12 @@ Scarcity in CAT-21 is a product of time. Cat #0 can never be minted again. Earli
 
 Bitcoin is the most durable ledger ever created. The CAT-21 protocol inherits this property. CAT-21 cats can't be destroyed. They are immutable on the Bitcoin blockchain. If a CAT-21 ordinal becomes unspendable, the cat still exists but no longer has an owner. (The cat is free!)
 
+### Value
+
+CAT-21 enriches Bitcoin. Every cat lives on a single satoshi and gives that sat more meaning than a unit of account — beauty, history, scarcity that other sats don't carry.
+
+The Genesis Cat is the ultimate flip: one satoshi equals 21 BTC.
+
 
 ## Governance
 
